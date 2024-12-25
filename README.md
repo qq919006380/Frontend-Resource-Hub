@@ -30,6 +30,7 @@
 - [界面动画](https://jitter.video/?noredir=1)
 - [落地页组件](https://magicui.design/)
 - [用户界面](https://ui.aceternity.com/)
+- [丝滑的微交互动效](https://www.fancycomponents.dev/)
 
 ## JavaScript
 - [proxy-www](https://github.com/justjavac/proxy-www)
