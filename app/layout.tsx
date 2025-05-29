@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   creator: "FE-Hub",
   publisher: "FE-Hub",
   alternates: {
-    canonical: "https://fe-hub.cn",
+    canonical: "https://fehub.app",
   },
   openGraph: {
     title: "FE-Hub - 前端开发者的专业资源导航",
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_CN",
     siteName: "FE-Hub",
-    url: "https://fe-hub.cn",
+    url: "https://fehub.app",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/image.png",
         width: 1200,
         height: 630,
         alt: "FE-Hub - 前端资源导航平台",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FE-Hub - 前端资源导航",
     description: "精选优质前端开发资源，CSS工具、JS库、设计素材一站式导航",
-    images: ["/og-image.jpg"],
+    images: ["/image.png"],
   },
   robots: {
     index: true,

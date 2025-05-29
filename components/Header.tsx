@@ -30,7 +30,9 @@ export default function Header({ searchTerm, onSearchChange, onMenuClick }: Head
               <Image src="/favicon.ico" alt="FE-Hub" width={50} height={50} />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-gray-900 dark:text-white">FE-Hub</h1>
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+                <span className="text-blue-600 dark:text-blue-400">FEHub</span>.app
+              </h1>
               <p className="text-sm text-gray-600 dark:text-gray-400">前端开发者的专业导航 · 精选工具 · 实用资源</p>
             </div>
           </div>
