@@ -1,0 +1,10 @@
+{
+  "name": "fe-hub",
+  "compatibility_date": "2025-05-05",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "pages_build_output_dir": ".vercel/output/static",
+  "dev": {
+    "local_protocol": "http",
+    "port": 3000
+  }
+}

@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Filz 项目规则与约定
+- 使用的是pnpm
+- icon使用lucide-react
+- 修改前请查阅已有的技术栈 package.json
+- 代码实现尽可能的优雅、可扩展
+- 禁止修改.env.local文件
+
+## 项目概述
+FE-Hub是一个前端导航站平台
+
+### 技术栈
+
+- **前端框架**: Next.js 15.x
+- **必须支持黑暗模式**:使用tailwind
+
+### SEO
+- 必须做好每一个SEO细节和规范
+- 项目只能服务端渲染
+
+## 编码规范
+
+1. **命名约定**:
+   - 使用驼峰命名法 (camelCase) 命名变量和函数
+   - 使用蛇形命名法 (snake_case) 命名数据库字段
+   - 使用帕斯卡命名法 (PascalCase) 命名组件和类
+
+2. **文件结构**:
+   - `/lib`: 存放核心功能模块
+   - `/app`: Next.js App Router 路由和页面组件
+   - `/components`: 共享UI组件
+
+3. **错误处理**:
+   - 所有外部API调用必须使用 try/catch 处理异常
+   - API路由必须返回统一格式的错误响应
+
+4. **日志规范**:
+   - 开发环境使用详细日志
+   - 生产环境仅记录关键信息和错误
+   - 敏感信息不能直接记录到日志
+
+ 
+## 项目部署
+项目部署到Cloudflare Pages 服务端使用Cloudflare Pages,如果用到api只能使用 Edge SSR

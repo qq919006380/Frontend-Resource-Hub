@@ -1,0 +1,29 @@
+{
+  "name": "fe-hub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "vercel-build": "next build",
+    "dev": "next dev",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "pnpm pages:build && wrangler pages dev",
+    "deploy": "NEXT_PUBLIC_URL=https://filz.io pnpm pages:build && wrangler pages deploy"
+  },
+  "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.12",
+    "@next/third-parties": "15.4.0-canary.51",
+    "lucide-react": "^0.511.0",
+    "next": "15.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5"
+  }
+}

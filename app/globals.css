@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 基础样式和CSS变量 */
+:root {
+  --background: 249 250 251; /* gray-50 */
+  --foreground: 17 24 39; /* gray-900 */
+  --card: 255 255 255; /* white */
+  --card-foreground: 17 24 39; /* gray-900 */
+  --border: 229 231 235; /* gray-200 */
+}
+
+.dark {
+  --background: 17 24 39; /* gray-900 */
+  --foreground: 249 250 251; /* gray-50 */
+  --card: 31 41 55; /* gray-800 */
+  --card-foreground: 249 250 251; /* gray-50 */
+  --border: 55 65 81; /* gray-700 */
+}
+
+/* 应用CSS变量到body */
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 支持line-clamp */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 确保暗色模式正确应用 */
+.dark {
+  color-scheme: dark;
+}
+
+/* 修复一些可能的样式问题 */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
