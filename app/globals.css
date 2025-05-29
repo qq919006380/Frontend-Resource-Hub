@@ -86,3 +86,151 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
+/* 访问按钮伪元素样式 */
+.visit-btn::after {
+  content: "前往网站";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  transition: all 0.2s ease;
+  letter-spacing: normal;
+}
+
+.visit-btn:hover::after {
+  letter-spacing: 0.05em;
+}
+
+/* 丝滑筛选动画效果 */
+/* 卡片网格动画 */
+.cards-grid {
+  opacity: 0;
+  animation: fadeInGrid 0.6s ease-out forwards;
+}
+
+.cards-grid > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInCard 0.5s ease-out forwards;
+}
+
+.cards-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.cards-grid > *:nth-child(2) { animation-delay: 0.15s; }
+.cards-grid > *:nth-child(3) { animation-delay: 0.2s; }
+.cards-grid > *:nth-child(4) { animation-delay: 0.25s; }
+.cards-grid > *:nth-child(5) { animation-delay: 0.3s; }
+.cards-grid > *:nth-child(6) { animation-delay: 0.35s; }
+.cards-grid > *:nth-child(7) { animation-delay: 0.4s; }
+.cards-grid > *:nth-child(8) { animation-delay: 0.45s; }
+.cards-grid > *:nth-child(9) { animation-delay: 0.5s; }
+.cards-grid > *:nth-child(10) { animation-delay: 0.55s; }
+.cards-grid > *:nth-child(11) { animation-delay: 0.6s; }
+.cards-grid > *:nth-child(12) { animation-delay: 0.65s; }
+
+@keyframes fadeInGrid {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 标签选择动画 */
+.tag-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tag-selected {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.15);
+}
+
+/* 内容区域切换动画 */
+.content-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 侧边栏动画 */
+.sidebar-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 计数器动画 */
+.counter-animation {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.counter-update {
+  animation: bounceNumber 0.4s ease-out;
+}
+
+@keyframes bounceNumber {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* 标签切换动画 */
+.selected-tags-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.selected-tag-enter {
+  animation: tagSlideIn 0.3s ease-out;
+}
+
+.selected-tag-exit {
+  animation: tagSlideOut 0.2s ease-in;
+}
+
+@keyframes tagSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes tagSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(10px) scale(0.8);
+  }
+}

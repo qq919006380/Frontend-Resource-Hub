@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { getAllTags, navigationData } from '@/lib/navigation-data';
-import { tagCategories, getCategoryColorClasses } from '@/lib/tag-categories';
+import { tagCategories, getCategoryColorClasses, TagCategory } from '@/lib/tag-categories';
 import { Filter, Hash, X, ChevronDown, ChevronRight } from 'lucide-react';
 
 interface MobileSidebarProps {
@@ -145,7 +145,7 @@ export default function MobileSidebar({ selectedTags, onTagsChange, isOpen, onCl
 
           {/* 分类列表 */}
           <div className="space-y-2 max-h-[calc(100vh-300px)] overflow-y-auto">
-            {tagCategories.map((category) => {
+            {tagCategories.map((category: TagCategory) => {
               const isExpanded = expandedCategories.has(category.name);
               const hasSelected = hasSelectedTagsInCategory(category.tags);
               const categoryCount = getCategoryCount(category.tags);
@@ -157,7 +157,7 @@ export default function MobileSidebar({ selectedTags, onTagsChange, isOpen, onCl
                   {/* 分类头部 */}
                   <button
                     onClick={() => toggleCategory(category.name)}
-                    className={`w-full flex items-center justify-between px-3 py-2 text-left rounded-lg transition-all border ${colorClasses.bg} ${colorClasses.border}`}
+                    className={`w-full flex items-center justify-between px-3 py-2 text-left rounded-lg transition-all border sidebar-transition ${colorClasses.bg} ${colorClasses.border}`}
                   >
                     <div className="flex items-center gap-2">
                       <IconComponent className={`w-4 h-4 flex-shrink-0 ${colorClasses.icon}`} />
@@ -195,9 +195,9 @@ export default function MobileSidebar({ selectedTags, onTagsChange, isOpen, onCl
                             <button
                               key={tag}
                               onClick={() => handleTagToggle(tag)}
-                              className={`w-full flex items-center justify-between px-2 py-1.5 text-left rounded-md transition-colors text-sm ${
+                              className={`w-full flex items-center justify-between px-2 py-1.5 text-left rounded-md transition-colors text-sm tag-transition ${
                                 isSelected
-                                  ? `${colorClasses.bg} ${colorClasses.icon} font-medium`
+                                  ? `${colorClasses.bg} ${colorClasses.icon} font-medium tag-selected`
                                   : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                               }`}
                             >

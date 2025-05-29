@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { getItemsByTags, NavigationItem } from '@/lib/navigation-data';
 import { getTagCategory, getCategoryColorClasses } from '@/lib/tag-categories';
 import Header from '@/components/Header';
@@ -25,6 +25,7 @@ export default function ClientHomePage({
   const [selectedTags, setSelectedTags] = useState<string[]>(['全部']);
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [prevCount, setPrevCount] = useState(0);
 
   // 过滤数据
   const filteredData = useMemo(() => {
@@ -40,6 +41,20 @@ export default function ClientHomePage({
     
     return data;
   }, [selectedTags, searchTerm]);
+
+  // 数字变化动画
+  useEffect(() => {
+    if (prevCount !== filteredData.length) {
+      const counterElement = document.querySelector('.counter-animation');
+      if (counterElement) {
+        counterElement.classList.add('counter-update');
+        setTimeout(() => {
+          counterElement.classList.remove('counter-update');
+        }, 400);
+      }
+      setPrevCount(filteredData.length);
+    }
+  }, [filteredData.length, prevCount]);
 
   const handleMenuClick = () => {
     setIsMobileSidebarOpen(true);
@@ -119,7 +134,7 @@ export default function ClientHomePage({
         <main className="flex-1 p-4 lg:p-6">
           <div className="max-w-7xl mx-auto">
             {/* Stats */}
-            <div className="mb-6">
+            <div className="mb-6 fade-in-up">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex-1">
                   <h1 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -133,7 +148,7 @@ export default function ClientHomePage({
                     
                     {/* 已选标签 - 紧凑版本 */}
                     {selectedTags.length > 0 && !selectedTags.includes("全部") && (
-                      <div className="flex flex-wrap items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2 selected-tags-transition">
                         <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
                           <Star className="w-3 h-3" />
                           已选择:
@@ -144,7 +159,7 @@ export default function ClientHomePage({
                           return (
                             <span
                               key={`selected-${tag}`}
-                              className={`inline-flex items-center gap-1 px-2 py-1 text-xs rounded-md border ${colorClasses.bg} ${colorClasses.border}`}
+                              className={`inline-flex items-center gap-1 px-2 py-1 text-xs rounded-md border selected-tag-enter ${colorClasses.bg} ${colorClasses.border}`}
                             >
                               <span className={colorClasses.icon}>{tag}</span>
                               <button
@@ -160,18 +175,22 @@ export default function ClientHomePage({
                     )}
                   </div>
                 </div>
+                
               </div>
             </div>
 
             {/* Navigation Cards Grid */}
             {filteredData.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+              <div 
+                key={`${selectedTags.join('-')}-${searchTerm}`}
+                className="cards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6"
+              >
                 {filteredData.map((item, index) => (
                   <NavigationCard key={`${item.url}-${index}`} item={item} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12">
+              <div className="text-center py-12 fade-in-up">
                 <div className="text-gray-400 dark:text-gray-500 mb-4">
                   <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47.901-6.06 2.379C5.412 17.747 5.412 18 6 18h12c.588 0 .588-.253.06-.621z" />

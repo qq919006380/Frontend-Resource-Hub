@@ -42,11 +42,13 @@ export default function NavigationCard({ item }: NavigationCardProps) {
             </h3>
           </div>
         </div>
-        <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors flex-shrink-0" />
+        <a href={item.url} target="_blank" rel="noopener noreferrer">
+          <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors flex-shrink-0" />
+        </a>
       </div>
 
       {/* Description */}
-      <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2 leading-relaxed">
+      <p className="text-gray-600 h-10 dark:text-gray-300 text-sm mb-2 line-clamp-2 leading-relaxed">
         {item.description}
       </p>
 
@@ -72,9 +74,14 @@ export default function NavigationCard({ item }: NavigationCardProps) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/40 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-center"
+        className="visit-btn group/btn block h-8 w-full bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/40 text-blue-600 dark:text-blue-400 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 text-center relative overflow-hidden border border-transparent hover:border-blue-200 dark:hover:border-blue-700"
+        aria-label={`访问 ${item.name}`}
       >
-        访问网站
+        {/* CSS实现的动画背景 */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 opacity-0 group-hover/btn:opacity-100 transition-all duration-300 -translate-x-full group-hover/btn:translate-x-full"></div>
+        
+        {/* 边框光效 */}
+        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-blue-400/20 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-200"></div>
       </a>
     </div>
   );
