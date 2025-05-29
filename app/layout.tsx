@@ -30,11 +30,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_CN",
     siteName: "FE-Hub",
+    url: "https://fe-hub.cn",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "FE-Hub - 前端资源导航平台",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "FE-Hub - 前端资源导航",
     description: "精选优质前端开发资源，CSS工具、JS库、设计素材一站式导航",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -42,7 +52,19 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+  other: {
+    'theme-color': '#ffffff',
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
   },
 };
 
@@ -54,6 +76,20 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
+        {/* DNS预解析 */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        
+        {/* 主题色配置 */}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#1f2937" media="(prefers-color-scheme: dark)" />
+        
+        {/* PWA相关 */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        
+        {/* 防止主题闪烁的脚本 */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -81,7 +117,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <GoogleAnalytics gaId={gaId} />
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
     </html>
   );
