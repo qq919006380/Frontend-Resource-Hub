@@ -2,10 +2,12 @@
 
 import { useState, useMemo } from 'react';
 import { getItemsByTags, NavigationItem } from '@/lib/navigation-data';
+import { getTagCategory, getCategoryColorClasses } from '@/lib/tag-categories';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import MobileSidebar from '@/components/MobileSidebar';
 import NavigationCard from '@/components/NavigationCard';
+import { Star, X } from 'lucide-react';
 
 interface ClientHomePageProps {
   initialData: NavigationItem[];
@@ -45,6 +47,32 @@ export default function ClientHomePage({
 
   const handleMobileSidebarClose = () => {
     setIsMobileSidebarOpen(false);
+  };
+
+  const handleTagToggle = (tag: string) => {
+    if (tag === "全部") {
+      setSelectedTags(["全部"]);
+      return;
+    }
+
+    let newTags = [...selectedTags];
+    
+    // 移除"全部"如果选择了具体标签
+    if (newTags.includes("全部")) {
+      newTags = newTags.filter(t => t !== "全部");
+    }
+    
+    if (newTags.includes(tag)) {
+      newTags = newTags.filter(t => t !== tag);
+      // 如果没有选择任何标签，回到"全部"
+      if (newTags.length === 0) {
+        newTags = ["全部"];
+      }
+    } else {
+      newTags.push(tag);
+    }
+    
+    setSelectedTags(newTags);
   };
 
   const getDisplayTitle = () => {
@@ -91,15 +119,47 @@ export default function ClientHomePage({
         <main className="flex-1 p-4 lg:p-6">
           <div className="max-w-7xl mx-auto">
             {/* Stats */}
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <h1 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                  {getDisplayTitle()}
-                </h1>
-                <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">
-                  {getDisplayDescription()}
-                  {searchTerm && ` · 搜索: "${searchTerm}"`}
-                </p>
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex-1">
+                  <h1 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    {getDisplayTitle()}
+                  </h1>
+                  <div className="space-y-2">
+                    <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">
+                      {getDisplayDescription()}
+                      {searchTerm && ` · 搜索: "${searchTerm}"`}
+                    </p>
+                    
+                    {/* 已选标签 - 紧凑版本 */}
+                    {selectedTags.length > 0 && !selectedTags.includes("全部") && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+                          <Star className="w-3 h-3" />
+                          已选择:
+                        </span>
+                        {selectedTags.map((tag) => {
+                          const category = getTagCategory(tag);
+                          const colorClasses = category ? getCategoryColorClasses(category.color, true) : getCategoryColorClasses('gray', true);
+                          return (
+                            <span
+                              key={`selected-${tag}`}
+                              className={`inline-flex items-center gap-1 px-2 py-1 text-xs rounded-md border ${colorClasses.bg} ${colorClasses.border}`}
+                            >
+                              <span className={colorClasses.icon}>{tag}</span>
+                              <button
+                                onClick={() => handleTagToggle(tag)}
+                                className="hover:bg-red-100 dark:hover:bg-red-900/30 text-red-500 rounded-full p-0.5 transition-colors"
+                              >
+                                <X className="w-3 h-3" />
+                              </button>
+                            </span>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
 
