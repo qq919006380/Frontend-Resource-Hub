@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { navigationData, getAllTags } from '@/lib/navigation-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://fe-hub.cn'
+  const baseUrl = 'https://fehub.app'
   
   // 基础页面
   const routes = [

@@ -10,10 +10,10 @@ function generateStructuredData() {
     "@type": "WebSite",
     "name": "FE-Hub",
     "description": "专为前端开发者打造的资源导航平台",
-    "url": "https://fe-hub.cn",
+    "url": "https://fehub.app",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://fe-hub.cn/?search={search_term_string}",
+      "target": "https://fehub.app/?search={search_term_string}",
       "query-input": "required name=search_term_string"
     },
     "publisher": {

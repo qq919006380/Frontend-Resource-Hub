@@ -12,6 +12,6 @@ export default function robots(): MetadataRoute.Robots {
         '/*.json$',
       ],
     },
-    sitemap: 'https://fe-hub.cn/sitemap.xml',
+    sitemap: 'https://fehub.app/sitemap.xml',
   }
 } 
