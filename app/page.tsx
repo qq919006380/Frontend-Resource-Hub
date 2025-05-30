@@ -60,8 +60,12 @@ export default function Home() {
         {/* SEO友好的静态内容 */}
         <noscript>
           <div className="p-4">
-            <h1>FE-Hub - 前端资源导航</h1>
+            <h2>FE-Hub - 前端资源导航</h2>
             <p>精选 {totalResources} 个前端资源</p>
+            
+            <h2>热门前端开发工具</h2>
+            <p>发现最新最好用的前端开发工具和资源</p>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
               {navigationData.slice(0, 12).map((item, index) => (
                 <div key={index} className="border p-4 rounded">
@@ -73,6 +77,9 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            
+            <h2>关于FE-Hub</h2>
+            <p>FE-Hub致力于为前端开发者提供最全面、最实用的资源导航服务</p>
           </div>
         </noscript>
 
@@ -81,7 +88,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8">
             <div className="text-center">
               <div className="mb-3">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">FE-Hub</h3>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">关于FE-Hub</h2>
                 <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                   专为前端开发者打造的资源导航平台，精选优质工具、框架、库和学习资源，助力高效开发
                 </p>
