@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://fehub.app",
     images: [
       {
-        url: "/image.png",
+        url: "https://fehub.app/image.png",
         width: 1200,
         height: 630,
         alt: "FE-Hub - 前端资源导航平台",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FE-Hub - 前端资源导航",
     description: "精选优质前端开发资源，CSS工具、JS库、设计素材一站式导航",
-    images: ["/image.png"],
+    images: ["https://fehub.app/image.png"],
   },
   robots: {
     index: true,

@@ -9,6 +9,13 @@ export interface NavigationItem {
 export const navigationData: NavigationItem[] = [
   // 前置知识
   {
+    name: "Picsum Photos",
+    url: "https://picsum.photos/",
+    description: "免费占位图片库,可以用于测试和开发,支持随机图片、指定尺寸、指定数量、指定分类",
+    tags: ["图片", "免费", "测试"],
+    logo: "https://picsum.photos/favicon.ico"
+  },
+  {
     name: "慕课网 - JavaScript疑难杂症",
     url: "https://www.imooc.com/learn/1303",
     description: "直面JavaScript中的30个疑难杂症视频教程",
