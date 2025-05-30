@@ -12,7 +12,7 @@ export const navigationData: NavigationItem[] = [
     name: "Picsum Photos",
     url: "https://picsum.photos/",
     description: "免费占位图片库,可以用于测试和开发,支持随机图片、指定尺寸、指定数量、指定分类",
-    tags: ["图片", "免费", "测试"],
+    tags: ["图片", "免费", "测试", "占位图"],
     logo: "https://picsum.photos/favicon.ico"
   },
   {
