@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FE-Hub - 前端导航站 | 精选前端资源工具库",
+  title: "FE-Hub 前端资源导航平台 | 精选CSS工具、JavaScript库、Vue/React组件 | 免费开发神器大全",
   description: "FE-Hub 是专为前端开发者打造的专业资源导航平台，精选1000+优质前端开发工具和资源。汇集CSS工具、JavaScript库、Vue/React组件、动画效果、UI设计资源、开发神器、学习教程等优质内容。完全免费访问，定期更新维护，助力高效开发，全面提升编程技能和工作效率。",
   keywords: "前端导航,前端资源,CSS工具,JavaScript库,Vue组件,React组件,动画库,UI设计,开发工具,前端神器,编程学习,网站模板",
   authors: [{ name: "FE-Hub Team" }],
