@@ -17,6 +17,13 @@ export const navigationData: NavigationItem[] = [
     logo: "https://picsum.photos/favicon.ico",
   },
   {
+    name: "Anime.js",
+    url: "https://animejs.com/",
+    description: "强大的JavaScript动画库,高性能",
+    tags: ["JavaScript", "动画", "库"],
+    logo: "https://animejs.com/favicon.ico",
+  },
+  {
     name: "SVG.io",
     url: "https://svg.io/",
     description: "用ai文本提示词生成svg图片",
