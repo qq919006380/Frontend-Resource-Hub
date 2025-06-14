@@ -61,10 +61,10 @@ export const metadata: Metadata = {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
   other: {
-    'theme-color': '#ffffff',
+    'theme-color': '#1f2937', // 默认深色主题
     'mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent', // 适配深色主题
   },
 };
 
@@ -80,7 +80,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         
-        {/* 主题色配置 */}
+        {/* 主题色配置 - 默认深色主题 */}
+        <meta name="theme-color" content="#1f2937" />
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1f2937" media="(prefers-color-scheme: dark)" />
         
@@ -95,8 +96,10 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  const isDark = localStorage.getItem('theme') === 'dark' || 
-                    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                  // 默认使用黑色主题，除非用户明确设置为浅色
+                  const storedTheme = localStorage.getItem('theme');
+                  const isDark = storedTheme === 'dark' || 
+                    (!storedTheme && storedTheme !== 'light');
                   
                   if (isDark) {
                     document.documentElement.classList.add('dark');

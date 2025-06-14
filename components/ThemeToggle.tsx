@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true); // 默认为深色主题
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -17,24 +17,8 @@ export default function ThemeToggle() {
 
     checkTheme();
 
-    // 监听系统主题变化
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = () => {
-      if (!localStorage.getItem('theme')) {
-        const systemDark = mediaQuery.matches;
-        if (systemDark) {
-          document.documentElement.classList.add('dark');
-          document.documentElement.style.colorScheme = 'dark';
-        } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.style.colorScheme = 'light';
-        }
-        setIsDark(systemDark);
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    // 移除系统主题监听，因为我们现在默认使用深色主题
+    // 用户可以通过按钮手动切换
   }, []);
 
   const toggleTheme = () => {
