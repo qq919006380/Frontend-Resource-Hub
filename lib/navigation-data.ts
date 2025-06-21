@@ -7,7 +7,20 @@ export interface NavigationItem {
 }
 
 export const navigationData: NavigationItem[] = [
-  // 前置知识
+  {
+    name: "AutoCommit",
+    url: "https://www.autocommit.top/",
+    description: "AutoCommit 是一个使用Ai自动生成git commit信息的工具",
+    tags: ["Git", "Ai", "Commit", "工具"],
+    logo: "https://www.autocommit.top/favicon.ico",
+  },
+  {
+    name: "Liquid Glass",
+    url: "https://github.com/rdev/liquid-glass-react?tab=readme-ov-file",
+    description: "Liquid Glass 是一个基于 React 的液体玻璃效果组件，可以用于创建动态的玻璃效果。",
+    tags: ["Liquid Glass", "React", "CSS", "动画", "特效"],
+    logo: "https://github.com/favicon.ico",
+  },
   {
     name: "Picsum Photos",
     url: "https://picsum.photos/",
