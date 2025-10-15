@@ -8,6 +8,21 @@ export interface NavigationItem {
 
 export const navigationData: NavigationItem[] = [
   {
+    name: "patterncraft",
+    url: "https://patterncraft.fun/",
+    description: "好看的tailwind背景图案",
+    tags: ["UI","素材"],
+    logo: "https://patterncraft.fun/favicon.svg",
+  },
+  {
+    name: "Glass3D",
+    url: "https://glass3d.dev/",
+    description:
+      "Glass3D 是一个极简在线 3D 玻璃风格生成工具，让你快速创建高质感、可自定义的 UI 素材",
+    tags: ["毛玻璃", "UI", "素材", "工具", "3D"],
+    logo: "https://glass3d.dev/assets/logos/3D-glass-UI-logo.svg",
+  },
+  {
     name: "AutoCommit",
     url: "https://www.autocommit.top/",
     description: "AutoCommit 是一个使用Ai自动生成git commit信息的工具",
@@ -17,7 +32,8 @@ export const navigationData: NavigationItem[] = [
   {
     name: "Liquid Glass",
     url: "https://github.com/rdev/liquid-glass-react?tab=readme-ov-file",
-    description: "Liquid Glass 是一个基于 React 的液体玻璃效果组件，可以用于创建动态的玻璃效果。",
+    description:
+      "Liquid Glass 是一个基于 React 的液体玻璃效果组件，可以用于创建动态的玻璃效果。",
     tags: ["Liquid Glass", "React", "CSS", "动画", "特效"],
     logo: "https://github.com/favicon.ico",
   },
