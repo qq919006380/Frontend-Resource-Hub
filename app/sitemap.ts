@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { navigationData, getAllTags } from '@/lib/navigation-data'
 
+export const runtime = 'edge'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://fehub.app'
   
