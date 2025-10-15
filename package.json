@@ -7,7 +7,7 @@
     "dev": "next dev",
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "pnpm pages:build && wrangler pages dev",
-    "deploy": "NEXT_PUBLIC_URL=https://filz.io pnpm pages:build && wrangler pages deploy"
+    "deploy": "pnpm pages:build && wrangler pages deploy"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.12",
