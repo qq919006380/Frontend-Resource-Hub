@@ -8,10 +8,17 @@ export interface NavigationItem {
 
 export const navigationData: NavigationItem[] = [
   {
+    name: "reactbits",
+    url: "https://reactbits.dev/",
+    description: "炫酷的react组件特效",
+    tags: ["react","特效"],
+    logo: "https://reactbits.dev/favicon.ico",
+  },
+  {
     name: "patterncraft",
     url: "https://patterncraft.fun/",
     description: "好看的tailwind背景图案",
-    tags: ["UI","素材"],
+    tags: ["UI", "素材"],
     logo: "https://patterncraft.fun/favicon.svg",
   },
   {
